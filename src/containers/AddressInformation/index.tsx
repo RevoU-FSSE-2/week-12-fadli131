@@ -1,10 +1,10 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import { Input, Button } from 'antd';
+import { Input } from 'antd';
 import * as Yup from 'yup';
 import PagenationForm from '../PagenationForm';
 
-const AddressInformation = ({ onNext }) => {
+const AddressInformation = ({ onNext, onBack }) => {
   const initialValues = {
     StreetAddress: '',
     City: '',
@@ -24,47 +24,43 @@ const AddressInformation = ({ onNext }) => {
   };
 
   return (
-    <PagenationForm onNext={onNext} step={2} totalSteps={3}>
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          <Field
-            type="text"
-            name="StreetAddress"
-            as={Input}
-            placeholder="Street Address"
-          />
-          <Field
-            type="text"
-            name="City"
-            as={Input}
-            placeholder="City"
-          />
-          <Field
-            type="text"
-            name="State"
-            as={Input}
-            placeholder="State"
-          />
-          <Field
-            type="text"
-            name="zipCode"
-            as={Input}
-            placeholder="Kode Pos"
-          />
-        </Form>
-      )}
-    </Formik>
-  </PagenationForm>
+    <PagenationForm onNext={onNext} onBack={onBack} step={2} totalSteps={3}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <Field
+              type="text"
+              name="StreetAddress"
+              as={Input}
+              placeholder="Street Address"
+            />
+            <Field
+              type="text"
+              name="City"
+              as={Input}
+              placeholder="City"
+            />
+            <Field
+              type="text"
+              name="State"
+              as={Input}
+              placeholder="State"
+            />
+            <Field
+              type="text"
+              name="zipCode"
+              as={Input}
+              placeholder="Kode Pos"
+            />
+          </Form>
+        )}
+      </Formik>
+    </PagenationForm>
   );
 };
 
 export default AddressInformation;
-
-
-
-

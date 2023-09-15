@@ -16,7 +16,6 @@ function App() {
   };
 
   const handleSubmit = () => {
-  
     console.log('Data yang di-submit:', formData);
   };
 
@@ -24,8 +23,17 @@ function App() {
     <div className="App">
       <Row justify="center">
         <Col span={12}>
-          {step === 1 && <PersonalInformation onNext={handleNext} />}
-          {step === 2 && <AddressInformation onNext={handleNext} />}
+          {step === 1 && (
+            <PersonalInformation
+              onNext={handleNext}
+            />
+          )}
+          {step === 2 && (
+            <AddressInformation
+              onNext={handleNext}
+              onBack={handleBack}
+            />
+          )}
           {step === 3 && (
             <Registration
               onLogin={handleSubmit}

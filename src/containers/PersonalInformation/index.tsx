@@ -45,7 +45,7 @@ const PersonalInformation = ({ onNext }) => {
               type="text"
               name="nama"
               as={Input}
-              placeholder="Nama"
+              placeholder="Nama Lengkap"
             />
             <Field
               type="email"
