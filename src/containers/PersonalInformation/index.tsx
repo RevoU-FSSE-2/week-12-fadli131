@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Input, Button, DatePicker } from 'antd';
 import * as Yup from 'yup';
+import PagenationForm from '../PagenationForm';
 
 const PersonalInformation = ({ onNext }) => {
   const initialValues = {
@@ -32,36 +33,35 @@ const PersonalInformation = ({ onNext }) => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
+    <PagenationForm onNext={onNext} step={1} totalSteps={3}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
       >
-      {({ isSubmitting }) => (
-        <Form>
-          <Field
-            type="text"
-            name="nama"
-            as={Input}
-            placeholder="Nama"
-          />
-          <Field
-            type="email"
-            name="email"
-            as={Input}
-            placeholder="Email"
-          />
-           <Field
-            type="date"
-            name="tanggalLahir"
-            as={DatePicker}
-          />
-     <Button type="primary" htmlType="submit" disabled={isSubmitting}>
-            Selanjutnya
-          </Button>
-        </Form>
-      )}
-    </Formik>
+        {({ isSubmitting }) => (
+          <Form>
+            <Field
+              type="text"
+              name="nama"
+              as={Input}
+              placeholder="Nama"
+            />
+            <Field
+              type="email"
+              name="email"
+              as={Input}
+              placeholder="Email"
+            />
+            <Field
+              type="date"
+              name="tanggalLahir"
+              as={DatePicker}
+            />
+          </Form>
+        )}
+      </Formik>
+    </PagenationForm>
   );
 };
 

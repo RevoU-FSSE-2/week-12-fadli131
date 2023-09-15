@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Input, Button } from 'antd';
 import * as Yup from 'yup';
+import PagenationForm from '../PagenationForm';
 
 const AddressInformation = ({ onNext }) => {
   const initialValues = {
@@ -23,6 +24,7 @@ const AddressInformation = ({ onNext }) => {
   };
 
   return (
+    <PagenationForm onNext={onNext} step={2} totalSteps={3}>
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
@@ -42,7 +44,7 @@ const AddressInformation = ({ onNext }) => {
             as={Input}
             placeholder="City"
           />
-            <Field
+          <Field
             type="text"
             name="State"
             as={Input}
@@ -54,12 +56,10 @@ const AddressInformation = ({ onNext }) => {
             as={Input}
             placeholder="Kode Pos"
           />
-          <Button type="primary" htmlType="submit" disabled={isSubmitting}>
-            Selanjutnya
-          </Button>
         </Form>
       )}
     </Formik>
+  </PagenationForm>
   );
 };
 

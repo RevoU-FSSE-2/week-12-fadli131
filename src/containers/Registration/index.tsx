@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Input, Button } from 'antd';
 import * as Yup from 'yup';
+import PagenationForm from '../PagenationForm';
 
 const Registration = ({ onLogin }) => {
   const initialValues = {
@@ -19,31 +20,30 @@ const Registration = ({ onLogin }) => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          <Field
-            type="text"
-            name="username"
-            as={Input}
-            placeholder="Username"
-          />
-          <Field
-            type="password"
-            name="password"
-            as={Input}
-            placeholder="Password"
-          />
-          <Button type="primary" htmlType="submit" disabled={isSubmitting}>
-            Login
-          </Button>
-        </Form>
-      )}
-    </Formik>
+    <PagenationForm onNext={onLogin} step={3} totalSteps={3}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <Field
+              type="text"
+              name="username"
+              as={Input}
+              placeholder="Username"
+            />
+            <Field
+              type="password"
+              name="password"
+              as={Input}
+              placeholder="Password"
+            />
+          </Form>
+        )}
+      </Formik>
+    </PagenationForm>
   );
 };
 
