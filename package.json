@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@types/moment": "^2.13.0",
-    "antd": "^5.9.0",
+    "antd": "^5.9.1",
     "formik": "^2.4.4",
     "moment": "^2.29.4",
     "pagination": "^0.4.6",

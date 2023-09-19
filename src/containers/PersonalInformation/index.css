@@ -1,0 +1,10 @@
+.personal-information-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .personal-information-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
